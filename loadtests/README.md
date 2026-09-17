@@ -6,6 +6,10 @@ functions, SQL queries, indexes, and connection pool are used by the load server
 Only the load-test tools connect to the disposable database; this does not change
 which database your existing Vitest tests use.
 
+Start PostgreSQL with `pnpm db:up` before preparing the load-test database. The
+Compose initialization creates both databases and applies the migration when its
+volume is first created.
+
 ## Prepare once
 
 ```sh
