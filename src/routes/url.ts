@@ -20,7 +20,16 @@ export const registerUrlRoutes = (app: Hono, redirectStatus: 301 | 302 = 301) =>
     }
 
     const id = await storeLongUrlInDb(url)
-    return c.json({ shortUrl: base62Conversion(id) }, 201)
+    if (id !== null) {
+      return c.json({ shortUrl: base62Conversion(id) }, 201)
+    }
+
+    const concurrentId = await queryIdFromDb(url)
+    if (concurrentId !== null) {
+      return c.json({ shortUrl: base62Conversion(concurrentId) }, 200)
+    }
+
+    return c.json({ error: 'Unable to shorten URL' }, 500)
   })
 
   app.get('/expand', async (c) => {

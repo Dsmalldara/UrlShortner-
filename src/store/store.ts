@@ -46,7 +46,7 @@ export const getLongUrlFromShortUrl = (shortUrl: string): string | undefined =>{
    
 export const storeLongUrlInDb = async (longUrl: string,): Promise<number | null> => {
    const result = await pool.query('INSERT INTO urls (long_url) VALUES ($1) ON CONFLICT (long_url) DO NOTHING RETURNING id', [longUrl]);
-    const id = result.rows[0].id;
+    const id = result.rows[0]?.id;
    
     return id ?? null;
 }
