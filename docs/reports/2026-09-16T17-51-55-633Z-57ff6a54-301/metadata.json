@@ -1,0 +1,45 @@
+{
+  "runId": "2026-09-16T17-51-55-633Z-57ff6a54",
+  "startedAt": "2026-09-16T17:51:55.856Z",
+  "database": "url_shortener_loadtest",
+  "initialRows": "100000",
+  "seedRows": 100000,
+  "postgresVersion": "PostgreSQL 17.11 (Homebrew) on aarch64-apple-darwin24.6.0, compiled by Apple clang version 17.0.0 (clang-1700.6.4.2), 64-bit",
+  "k6Version": "k6 v2.2.0 (commit/devel, go1.26.5, darwin/arm64)",
+  "nodeVersion": "v25.9.0",
+  "machine": {
+    "platform": "darwin",
+    "release": "24.3.0",
+    "architecture": "arm64",
+    "cpu": "Apple M1",
+    "logicalCpus": 8,
+    "memoryBytes": 8589934592
+  },
+  "workload": {
+    "rate": 1100,
+    "duration": "30m",
+    "warmup": "60s",
+    "writeShare": 0.25,
+    "redirectShare": 0.75,
+    "hotShare": 0.8,
+    "hotKeyFraction": 0.01,
+    "redirectStatus": 301
+  },
+  "appPoolMaxConnections": 20,
+  "monitoringConnections": 1,
+  "preAllocatedVUsPerScenario": 1000,
+  "maxVUsPerScenario": 1000,
+  "p95BudgetMs": null,
+  "sourceHashes": {
+    "src/store/store.ts": "8f4597fecbd578b393c99e1271cbfb34246b54bf2b1a2b37354bdab5497e8d76",
+    "src/routes/url.ts": "68dae459b90e4572703a306037fc2525783439f8512305773dad5e7fe045d899",
+    "src/createHono.ts": "767fba2cc51e274a84546fd5b3c69f3b3b25cbea980e3c59ce09f7f3f1df1661",
+    "src/db.ts": "9d1bd2f11e278a4c6c6dd11e2891a3c250aaae6adfc5347df5d693cd360c9977",
+    "db/migrations/001_create_urls.sql": "6667307dfa0b69cfa698032db97817bc938dcc1d3bb28905d670160dd5b3235b",
+    "loadtests/soak.js": "6da4a269298640435c7def4c3f6e8fe00a1e9d2ea54fb3a521af98660e25dba1"
+  },
+  "k6ExitCode": 99,
+  "finalRows": "604049",
+  "finishedAt": "2026-09-16T18:23:01.936Z",
+  "interrupted": false
+}
