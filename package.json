@@ -1,0 +1,25 @@
+{
+  "name": "UrlShortner",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/index.ts",
+    "build": "tsc",
+    "start": "node --env-file-if-exists=.env dist/index.js",
+    "test": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs --dir src/tests",
+    "load:prepare": "pnpm build && node --env-file-if-exists=.env loadtests/prepare.mjs",
+    "load:run": "pnpm build && node --env-file-if-exists=.env loadtests/run.mjs"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "hono": "^4.13.7",
+    "pg": "^8.23.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}
